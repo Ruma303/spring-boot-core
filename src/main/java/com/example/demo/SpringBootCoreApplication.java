@@ -18,11 +18,11 @@ public class SpringBootCoreApplication {
         ApplicationContext ctx = SpringApplication.run(SpringBootCoreApplication.class, args);
 
         // Ottenere il Bean MyClass dal contesto
-        MyClass myClass = ctx.getBean(MyClass.class);
-        System.out.println(myClass.sayHello());
+		// MyClass myClass = ctx.getBean(MyClass.class);
+		// System.out.println(myClass.sayHello());
 
         // Ottenere il Bean MyComponent dal contesto
-        MyComponent myComponent = ctx.getBean(MyComponent.class);
+        MyComponent myComponent = ctx.getBean("myFirstBean", MyComponent.class);
         System.out.println(myComponent.sayHelloFromMyComponent());
     }
 
