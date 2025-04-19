@@ -1,74 +1,61 @@
 package com.example.demo;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.beans.EmailService;
+import com.example.demo.beans.NotificationService;
+import jakarta.annotation.PreDestroy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.*;
-import org.springframework.stereotype.Component;
-import com.example.demo.configs.ApplicationConfig;
-import com.example.demo.configs.HandleProperties;
-import com.example.demo.configs.MyClass;
-import com.example.demo.configs.MyComponent;
-import com.example.demo.configs.MyService;
-
 import org.springframework.context.ApplicationContext;
-
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SpringBootCoreApplication {
-	
-	public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(SpringBootCoreApplication.class, args);
 
-        // Ottenere il Bean MyClass dal contesto
-		// MyClass myClass = ctx.getBean(MyClass.class);
-		// System.out.println(myClass.sayHello());
+    public static void main(String[] args) {
 
-        // Ottenere il Bean MyComponent dal contesto
-        //MyComponent myComponent = ctx.getBean("bean2", MyComponent.class);
-        //System.out.println(myComponent.sayHelloFromMyComponent());
-        
-        // Field Injection
-        MyService myService = ctx.getBean(MyService.class);
-        System.out.println(myService.fieldInjection());
-        
-        
-        // Method Injection
-        System.out.println(myService.getJavaVersion());
-        System.out.println(myService.getOsName());
-        System.out.println(myService.getAppName());
-        System.out.println(myService.getCustomProperty());
-        
-        
-        HandleProperties hp = ctx.getBean(HandleProperties.class);
-        System.out.println(hp.getAppVersion());
-        System.out.println(hp.getCustomProp2());
+        // 1. Creazione contesto ApplicationContext.
+        ApplicationContext context = SpringApplication.run(SpringBootCoreApplication.class, args);
+
+        // 2.a Creazione email.
+        // Chiamata a context.getBean() senza specificare il nome del bean alternativo
+        // Questo recupera il bean marcato con @Primary.
+        EmailService emailService = context.getBean(EmailService.class);
+        emailService.createEmail();
+
+        // 2.b Chiamata a context.getBean() specificando il nome del bean alternativo
+        // Questo recupera il bean alternativo creato in AppConfig con @Bean(name = "alternativeEmailService").
+        EmailService alternativeEmailService = context.getBean("alternativeEmailService",
+                EmailService.class);
+
+
+        // 3.a Invio notifica con bean primario.
+        NotificationService notificationService = context.getBean(NotificationService.class);
+        notificationService.sendNotification();
+
+        // 3.b Invio notifica con bean alternativo
+        NotificationService alternativeNotificationService = context.getBean("notificationService",
+                NotificationService.class);
+        alternativeNotificationService.sendAlternativeNotification();
+
+        // 5. Chiusura del bean CloseableBean
+        context.getBean(CloseableBean.class).close();
     }
 
-//	public static void main(String[] args) {
-//		var ctx = SpringApplication.run(SpringBootCoreApplication.class, args);
-//		
-//		// Piuttosto che creare un'istanza 
-//		// MyClass myClass = new MyClass();
-//		
-//		// Iniettiamo il bean di MyClass indicato dal @Component
-//		// MyClass myClass = ctx.getBean(MyClass.class);
-//		// System.out.println(myClass.sayHello());
-//	}
-	
-//	@Bean
-//	public MyClass myClass2() {
-//		return new MyClass();
-//	}
+    public static class CloseableBean implements AutoCloseable {
+
+        public CloseableBean() {
+            System.out.println("Chiusura dal bean CloseableBean");
+        }
+
+        @Override
+        public void close() {
+            System.out.println("Esecuzione del metodo close()");
+        }
+    }
+
+    @Bean(destroyMethod = "close")
+    public CloseableBean closeableBean() {
+        return new CloseableBean();
+    }
 
 }
-
-
-//@Component
-//class MyClass {
-//    public String sayHello() {
-//        return "Hello";
-//    }
-//}
-
-
