@@ -1,12 +1,11 @@
 package com.example.demo.beans;
 
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.*;
 
 import java.util.Scanner;
 
-@Configuration("appConfig") // Nome del bean di configurazione
+@Configuration("appConfig2") // Nome del bean di configurazione
 @Scope("singleton") // Superflua
 public class AppConfig {
 

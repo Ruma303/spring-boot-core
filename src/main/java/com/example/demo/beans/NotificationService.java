@@ -10,7 +10,6 @@ public class NotificationService {
     // Non è possibile usare @Autowired su un campo final
     private final EmailService emailService;
 
-    @Autowired // Non necessario, già iniettato tramite il setter (field injection)
     private EmailService alternativeEmailService;
 
     @Autowired

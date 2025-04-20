@@ -1,23 +1,20 @@
 package com.example.demo.configs;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 
-@Configuration("appConfig2") // Nome del bean di configurazione
-@Scope("singleton")
+@Configuration // 1. Definire classe di configurazione
 public class AppConfig {
 
-    @Bean
-    @Qualifier("accountRepository")
+    @Bean // 2. Creazione di un primo bean
     public AccountRepository accountRepository() {
+        System.out.println("Creazione del bean accountRepository");
         return new AccountRepository();
     }
 
-    @Bean
-    @Qualifier("paymentService")
+    @Bean // 3. Creazione secondo bean che necessita del primo
+    // Il primo bean viene iniettato come parametro (Dependency Injection)
     public PaymentService paymentService(AccountRepository accountRepository) {
+        System.out.println("Creazione del bean paymentService");
         return new PaymentService(accountRepository);
     }
 }
