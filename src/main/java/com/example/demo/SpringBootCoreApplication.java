@@ -28,6 +28,8 @@ public class SpringBootCoreApplication {
 
         // --------------------------------
 
+        // Esempio beans
+
         // 2.a Creazione email.
         // Chiamata a context.getBean() senza specificare il nome del bean alternativo
         // Questo recupera il bean marcato con @Primary.

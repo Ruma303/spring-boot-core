@@ -1,22 +1,22 @@
 package com.example.demo.beans;
 
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.*;
 
-@Component
+@Configuration
 public class Message {
-    public String greetings = "Saluti";
-    public String goodMorning = "Buongiorno";
-    public String goodbye = "Arrivederci";
 
-    public String getGreetings() {
-        return greetings;
-    }
-    public String getGoodMorning() {
-        return goodMorning;
+    @Bean(name = "greetings")
+    public String greetings() {
+        return "Saluti";
     }
 
-    public String getGoodbye() {
-        return goodbye;
+    @Bean(name = "goodMorning")
+    public String goodMorning() {
+        return "Buongiorno";
     }
 
+    @Bean(name = "goodbye")
+    public String goodbye() {
+        return "Arrivederci";
+    }
 }
