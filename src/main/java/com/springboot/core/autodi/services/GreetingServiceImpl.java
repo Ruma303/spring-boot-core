@@ -1,5 +1,8 @@
-package com.springboot.core.manualdi.services;
+package com.springboot.core.autodi.services;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class GreetingServiceImpl implements GreetingService {
 
     @Override
