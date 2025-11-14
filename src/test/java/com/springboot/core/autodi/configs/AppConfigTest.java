@@ -1,8 +1,9 @@
-package com.springboot.core.configs;
+package com.springboot.core.autodi.configs;
 
 import com.springboot.core.autodi.controllers.WelcomeController;
 import com.springboot.core.autodi.services.GreetingServiceImpl;
 import com.springboot.core.autodi.services.WelcomeService;
+import com.springboot.core.configs.AppConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
