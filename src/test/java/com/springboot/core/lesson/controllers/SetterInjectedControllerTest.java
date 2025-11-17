@@ -1,4 +1,4 @@
-package com.springboot.core.autodi.controllers;
+package com.springboot.core.lesson.controllers;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

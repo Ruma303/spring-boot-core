@@ -1,7 +1,6 @@
-package com.springboot.core.autodi.controllers;
+package com.springboot.core.lesson.controllers;
 
-import com.springboot.core.autodi.services.GreetingService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.springboot.core.lesson.services.GreetingService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 

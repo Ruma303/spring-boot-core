@@ -1,7 +1,7 @@
-package com.springboot.core.configs;
+package com.springboot.core.lesson.configs;
 
-import com.springboot.core.autodi.services.GreetingService;
-import com.springboot.core.autodi.services.WelcomeService;
+import com.springboot.core.lesson.services.GreetingService;
+import com.springboot.core.lesson.services.WelcomeService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

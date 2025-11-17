@@ -1,4 +1,4 @@
-package com.springboot.core.autodi.services;
+package com.springboot.core.lesson.services;
 
 public class WelcomeService {
     private final GreetingService greetingService;

@@ -1,6 +1,6 @@
-package com.springboot.core.autodi.controllers;
+package com.springboot.core.lesson.controllers;
 
-import com.springboot.core.autodi.services.GreetingService;
+import com.springboot.core.lesson.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 @Controller
