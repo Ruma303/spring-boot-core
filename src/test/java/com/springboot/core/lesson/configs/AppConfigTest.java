@@ -16,12 +16,6 @@ class AppConfigTest {
     AppConfig appConfig;
 
     @Autowired
-    private String appName;
-
-    @Autowired
-    private Boolean dbConnection;
-
-    @Autowired
     private WelcomeService welcomeService;
 
     @Autowired
@@ -31,18 +25,8 @@ class AppConfigTest {
     private WelcomeController welcomeController;
 
     @Test
-    void myBean() {
-        System.out.println(appConfig.myBean());
-    }
-
-    @Test
-    void appName() {
-        assertEquals("spring-boot-core", appName);
-    }
-
-    @Test
-    void dbConnection() {
-        assertTrue(dbConnection);
+    void whichGreeting() {
+        System.out.println(welcomeService.welcome());
     }
 
     @Test
