@@ -13,9 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class AppConfigTest {
 
     @Autowired
-    AppConfig appConfig;
-
-    @Autowired
     private WelcomeService welcomeService;
 
     @Autowired
