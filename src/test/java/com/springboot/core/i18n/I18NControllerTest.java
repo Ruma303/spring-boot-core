@@ -1,12 +1,12 @@
-package com.example.demo.i18n;
+package com.springboot.core.i18n;
 
-import com.example.demo.profiles.I18NController;
+import com.springboot.core.controllers.I18NController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-@ActiveProfiles("IT")
+//@ActiveProfiles("IT")
 @SpringBootTest
 public class I18NControllerTest {
 

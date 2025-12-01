@@ -1,4 +1,4 @@
-package com.example.demo.profiles;
+package com.springboot.core.services;
 
 public interface GreetingService {
     String sayGreeting();

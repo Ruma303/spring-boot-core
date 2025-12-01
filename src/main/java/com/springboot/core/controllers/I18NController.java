@@ -1,4 +1,6 @@
-package com.example.demo.profiles;
+package com.springboot.core.controllers;
+
+import com.springboot.core.services.GreetingService;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
